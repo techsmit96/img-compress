@@ -8,7 +8,6 @@ interface UploadOptions {
   fileResizeRatio?: [number, number][] | null;
   allowExtension?: string[] | null;
   imageQuality?: number;
-  childPath: string;
   localPath: string;
 }
 
@@ -35,7 +34,6 @@ class UploadManager {
    * @param {boolean} [options.fileCompression=false] - Whether to compress the uploaded files.
    * @param {Array} [options.fileResizeRatio=null] - An array of image resize ratios.
    * @param {Array} [options.allowExtension=null] - An array of allowed file extensions.
-   * @param {string} options.childPath - The child path of the uploaded file.
    * @param {number} options.imageQuality - The quality of the uploaded file.
    * @param {string} options.localPath - The local path of the uploaded file when environment is LOCAL.
    *
@@ -51,7 +49,6 @@ class UploadManager {
       fileResizeRatio: options.fileResizeRatio || null,
       allowExtension: options.allowExtension || null,
       imageQuality: options.imageQuality ?? 80,
-      childPath: options.childPath || "images",
       localPath: options.localPath || "../public",
     };
 
@@ -92,6 +89,20 @@ class UploadManager {
     return file.buffer;
   }
 
+  /**
+   *
+   * Compresses the image contained in the given file buffer using the specified
+   * image quality, and saves the compressed image to the file's destination path.
+   *
+   * @async
+   * @function compressImage
+   * @memberof UploadManager
+   *
+   * @param {Object} file - The file object containing the file data like `file.buffer` etc
+   * @param {number} imageQuality - The image quality to use when compressing the image, expressed as a number between 0 and 100.
+   * @returns {Promise<Buffer>} A promise that resolves with the compressed image buffer.
+   */
+
   private async compressImage(
     file: Express.Multer.File,
     imageQuality: number
@@ -120,6 +131,19 @@ class UploadManager {
     file.buffer = output;
     return file.buffer;
   }
+
+  /**
+   * Processes an image by compressing and resizing it according to the options provided.
+   *
+   * @param {Buffer} image - The image buffer to be processed.
+   * @param {Object} options - The options for processing the image.
+   * @param {boolean} [options.compress=false] - Whether to compress the image.
+   * @param {number} [options.quality=80] - The quality of the compressed image (0-100).
+   * @param {Array} [options.sizes=[]] - An array of objects specifying the sizes to which the image should be resized.
+   * @param {number} options.sizes[].width - The width to which the image should be resized.
+   * @param {number} options.sizes[].height - The height to which the image should be resized.
+   *
+   */
 
   private async processImage(file: Express.Multer.File): Promise<FileData[]> {
     file.filename = `${file.fieldname}_${moment().unix()}.jpeg`;
@@ -234,13 +258,6 @@ class UploadManager {
               file.fieldname
             }_${moment().unix()}.${file.originalname.split(".").pop()}`;
             file.contenttype = file.mimetype;
-            // Assuming uploadImageToS3 is defined elsewhere
-            // let s3upload = await this.uploadImageToS3(file);
-            // if (s3upload.code) {
-            //   callback(err, { data: {}, code: s3upload.code });
-            //   return;
-            // }
-            // uploadedImageDataArr = s3upload;
           }
         }
         callback(null, { data: uploadedImageDataArr, code: 200 });
