@@ -5,5 +5,5 @@ A simple package for compressing and resizing images using `sharp`.
 ## Installation
 
 ```bash
-npm install image-processor
+npm install image-compress
 ```
