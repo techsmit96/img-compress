@@ -1,5 +1,5 @@
 {
-  "name": "img-compress",
+  "name": "smart-optimizer",
   "version": "0.0.1",
   "description": "A package for compressing and resizing images.",
   "main": "./dist/index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/techsmit96/img-compress.git"
+    "url": "git+https://github.com/techsmit96/smart-optimizer.git"
   },
   "keywords": [
     "compress image",
@@ -22,9 +22,9 @@
   "author": "sumitsakpal02@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/techsmit96/img-compress/issues"
+    "url": "https://github.com/techsmit96/smart-optimizer/issues"
   },
-  "homepage": "https://github.com/techsmit96/img-compress#readme",
+  "homepage": "https://github.com/techsmit96/smart-optimizer#readme",
   "devDependencies": {
     "@types/node": "^20.14.2",
     "tsup": "^8.1.0",
