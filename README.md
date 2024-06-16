@@ -1,8 +1,8 @@
 # Smart Optimizer
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][build-image]][build-url]
-[![License][license-image]][license-url]
+[![NPM Version](https://img.shields.io/npm/v/smart-optimizer.svg)](https://www.npmjs.com/package/smart-optimizer)
+[![Build Status](https://img.shields.io/travis/com/your-username/smart-optimizer.svg)](https://travis-ci.com/your-username/smart-optimizer)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 Smart Optimizer is an efficient image compression and resizing middleware for `Node.js` applications. Using `TypeScript`, `Multer`, `Tsup`, and `Sharp`, it allows you to compress images before uploading, manage file sizes, and specify image quality. Perfect for optimizing image uploads in your web applications.
 
