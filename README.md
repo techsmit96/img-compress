@@ -27,7 +27,7 @@ npm install smart-optimizer
 
 To use Smart Optimizer as middleware in your application, follow these steps:
 
- 1. Import Dependencies:
+1. Import Dependencies:
 
  ```javascript
  const UploadManager = require("smart-optimizer").default;
@@ -38,7 +38,7 @@ To use Smart Optimizer as middleware in your application, follow these steps:
  import uploadManager from 'smart-optimizer'
  ```
 
- 2. Initialize Middleware:
+2. Initialize Middleware:
 
  ```javascript 
  exports.uploadPic = async (req, res, next) => {
@@ -66,7 +66,7 @@ To use Smart Optimizer as middleware in your application, follow these steps:
 };
  ```
 
- 3. Routes
+3. Routes
 
  ```javascript
  app.post('/upload',uploadPic, (req, res) => {
