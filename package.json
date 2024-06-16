@@ -1,6 +1,6 @@
 {
   "name": "smart-optimizer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A package for compressing and resizing images.",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
