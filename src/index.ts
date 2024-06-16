@@ -28,18 +28,18 @@ interface FileData {
  */
 
 class UploadManager {
-  // /**
-  //  * Create an instance of UploadManager.
-  //  * @constructor
-  //  * @param {Object} [options={}] - The options for configuring UploadManager.
-  //  * @param {boolean} [options.fileCompression=false] - Whether to compress the uploaded files.
-  //  * @param {Array} [options.fileResizeRatio=null] - An array of image resize ratios.
-  //  * @param {Array} [options.allowExtension=null] - An array of allowed file extensions.
-  //  * @param {number} options.imageQuality - The quality of the uploaded file.
-  //  * @param {string} options.localPath - The local path of the uploaded file when environment is LOCAL.
-  //  *
-  //  * @return The uploaded file array of object.
-  //  */
+  /**
+   * Create an instance of UploadManager.
+   * @constructor
+   * @param {Object} [options={}] - The options for configuring UploadManager.
+   * @param {boolean} [options.fileCompression=false] - Whether to compress the uploaded files.
+   * @param {Array} [options.fileResizeRatio=null] - An array of image resize ratios.
+   * @param {Array} [options.allowExtension=null] - An array of allowed file extensions.
+   * @param {number} options.imageQuality - The quality of the uploaded file.
+   * @param {string} options.localPath - The local path of the uploaded file when environment is LOCAL.
+   *
+   * @return The uploaded file array of object.
+   */
 
   private options: UploadOptions;
   private upload: Multer;
